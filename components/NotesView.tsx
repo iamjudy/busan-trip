@@ -172,8 +172,8 @@ export const NotesView: React.FC = () => {
         <AlertCircle className="text-amber-500 flex-shrink-0" size={18} />
         <div className="space-y-1">
           <p className="text-amber-900 text-[11px] font-bold">資料不具備同步功能</p>
-          <p className="text-amber-800 text-[10px] leading-relaxed">
-            筆記目前僅儲存在這台手機的瀏覽器中。\n你在這寫下的內容，其他人的手機是不會自動顯示的哦！
+          <p className="text-amber-800 text-[10px] leading-relaxed whitespace-pre-line">
+            {`筆記目前僅儲存在這台手機的瀏覽器中。\n你在這寫下的內容，其他人的手機是不會自動顯示的哦！`}
           </p>
         </div>
       </div>

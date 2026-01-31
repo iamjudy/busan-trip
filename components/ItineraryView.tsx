@@ -99,7 +99,7 @@ export const ItineraryView: React.FC = () => {
   return (
     <div className="pb-8 pt-2 animate-fade-in bg-busan-bg min-h-full">
       <div className="px-6 pt-4 pb-2 text-center">
-        <h2 className="text-[10px] font-bold tracking-[0.3em] text-busan-primary mb-1 uppercase">Feb 2026 Trip</h2>
+        <h2 className="text-[10px] font-bold tracking-[0.3em] text-busan-primary mb-1 uppercase">Trip Diary</h2>
         <h1 className="text-3xl font-serif font-bold text-busan-headline mb-4">{selectedDay.dayTitle}</h1>
       </div>
 
@@ -168,9 +168,9 @@ export const ItineraryView: React.FC = () => {
                         href={event.locationUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-sky-50 text-sky-700 border-sky-100 hover:bg-sky-100 transition-colors underline decoration-sky-200 decoration-2 underline-offset-2"
+                        className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-amber-50 text-amber-700 border-amber-100 hover:bg-amber-100 transition-colors underline decoration-amber-200 decoration-2 underline-offset-2"
                       >
-                        <MapPin size={11} className="text-sky-500" /> {event.location} <ExternalLink size={10} />
+                        <MapPin size={11} className="text-amber-500" /> {event.location} <ExternalLink size={10} />
                       </a>
                     ) : (
                       <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-slate-50 text-slate-400 border-slate-100">
