@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ITINERARY_DATA } from '../constants';
-import { MapPin, Camera, Coffee, ShoppingBag, Train, Plane, Utensils, Landmark, Moon, Sun, Cloud, CloudRain, CloudSun, BedDouble, ChevronRight, Info, ExternalLink } from 'lucide-react';
+import { MapPin, Camera, Coffee, ShoppingBag, Train, Plane, Utensils, Landmark, Moon, Sun, Cloud, CloudRain, CloudSun, BedDouble, ChevronRight, Info, ExternalLink, Sparkles } from 'lucide-react';
 import { weatherService } from '../services/weatherService';
 import { WeatherForecast, FlightInfo } from '../types';
 
@@ -19,7 +19,6 @@ const WeatherIcon: Record<string, React.ReactNode> = {
   Rain: <CloudRain size={24} className="text-blue-300" />
 };
 
-// 連結渲染組件：處理 [文字](連結) 格式
 const LinkifiedText: React.FC<{ text: string }> = ({ text }) => {
   const parts = text.split(/(\[.*?\]\(.*?\))/g);
   return (
@@ -46,7 +45,7 @@ const LinkifiedText: React.FC<{ text: string }> = ({ text }) => {
 };
 
 const FlightCard: React.FC<{ flight: FlightInfo }> = ({ flight }) => (
-  <div className="bg-slate-50 rounded-2xl p-4 border border-busan-tertiary/40 my-3">
+  <div className="bg-white/60 rounded-2xl p-4 border border-busan-primary/20 my-3 backdrop-blur-sm shadow-sm">
     <div className="flex justify-between items-center mb-4">
       <div className="flex items-center gap-2">
         <div className="bg-busan-primary p-1.5 rounded-lg text-white">
@@ -62,7 +61,6 @@ const FlightCard: React.FC<{ flight: FlightInfo }> = ({ flight }) => (
         <div className="text-xl font-black text-busan-headline">{flight.departureTime}</div>
         <div className="text-[10px] font-bold text-busan-paragraph/60">{flight.departureAirport}</div>
         <div className="text-[11px] font-medium mt-1">{flight.departureCity}</div>
-        {flight.departureTerminal && <div className="text-[9px] text-busan-primary mt-1">{flight.departureTerminal}</div>}
       </div>
       
       <div className="flex flex-col items-center flex-1 px-4">
@@ -72,14 +70,12 @@ const FlightCard: React.FC<{ flight: FlightInfo }> = ({ flight }) => (
             <ChevronRight size={12} className="text-slate-300" />
           </div>
         </div>
-        <div className="text-[9px] font-bold text-slate-300 mt-1">{flight.co2 || 'Standard Flight'}</div>
       </div>
 
       <div className="text-center">
         <div className="text-xl font-black text-busan-headline">{flight.arrivalTime}</div>
         <div className="text-[10px] font-bold text-busan-paragraph/60">{flight.arrivalAirport}</div>
         <div className="text-[11px] font-medium mt-1">{flight.arrivalCity}</div>
-        {flight.arrivalTerminal && <div className="text-[9px] text-busan-primary mt-1">{flight.arrivalTerminal}</div>}
       </div>
     </div>
   </div>
@@ -103,7 +99,7 @@ export const ItineraryView: React.FC = () => {
   return (
     <div className="pb-8 pt-2 animate-fade-in bg-busan-bg min-h-full">
       <div className="px-6 pt-4 pb-2 text-center">
-        <h2 className="text-[10px] font-bold tracking-[0.3em] text-busan-primary mb-1 uppercase">Trip Diary</h2>
+        <h2 className="text-[10px] font-bold tracking-[0.3em] text-busan-primary mb-1 uppercase">Feb 2026 Trip</h2>
         <h1 className="text-3xl font-serif font-bold text-busan-headline mb-4">{selectedDay.dayTitle}</h1>
       </div>
 
@@ -144,35 +140,40 @@ export const ItineraryView: React.FC = () => {
             <div key={index} className="relative pl-8">
               <div className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full border-2 border-white shadow-sm z-10 bg-busan-primary"></div>
               
-              <div className="bg-white p-5 rounded-[24px] shadow-sm border border-busan-primary/5 relative group transition-transform">
+              <div className="bg-white p-5 rounded-[24px] shadow-sm border border-busan-primary/5 relative group transition-all">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-[10px] font-bold text-busan-primary bg-busan-primary/10 px-2 py-0.5 rounded-md">{event.time}</span>
                   {event.icon && <span className="text-busan-primary opacity-60">{IconMap[event.icon]}</span>}
                 </div>
-                <h4 className="text-base font-bold mb-1 font-serif text-busan-headline">{event.title}</h4>
-                <p className="text-busan-paragraph text-sm leading-relaxed mb-3 opacity-90">{event.description}</p>
+                
+                <h4 className="text-lg font-bold mb-1 font-serif text-busan-headline">{event.title}</h4>
+                <p className="text-busan-paragraph text-sm leading-relaxed mb-4 opacity-90">{event.description}</p>
                 
                 {event.flight && <FlightCard flight={event.flight} />}
 
                 {event.image && (
-                  <div className="my-3 overflow-hidden rounded-2xl border border-busan-tertiary/30">
-                    <img src={event.image} alt={event.title} className="w-full h-auto object-cover max-h-48" />
+                  <div className="mb-4 overflow-hidden rounded-2xl border border-busan-primary/10 shadow-sm">
+                    <img 
+                      src={event.image} 
+                      alt={event.title} 
+                      className="w-full h-auto object-cover max-h-56 hover:scale-105 transition-transform duration-500" 
+                    />
                   </div>
                 )}
 
                 {event.location && (
-                  <div className="mt-2 flex items-center gap-2">
+                  <div className="mb-3">
                     {event.locationUrl ? (
                       <a 
                         href={event.locationUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-amber-50 text-amber-800 border-amber-200/50 hover:bg-amber-100 transition-colors underline decoration-amber-300"
+                        className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-sky-50 text-sky-700 border-sky-100 hover:bg-sky-100 transition-colors underline decoration-sky-200 decoration-2 underline-offset-2"
                       >
-                        <MapPin size={11} /> {event.location} <ExternalLink size={9} />
+                        <MapPin size={11} className="text-sky-500" /> {event.location} <ExternalLink size={10} />
                       </a>
                     ) : (
-                      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-slate-50 text-slate-600 border-slate-200">
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-slate-50 text-slate-400 border-slate-100">
                         <MapPin size={11} /> {event.location}
                       </span>
                     )}
@@ -180,8 +181,8 @@ export const ItineraryView: React.FC = () => {
                 )}
 
                 {event.notes && (
-                  <div className="mt-4 p-4 bg-busan-secondary rounded-2xl border border-rose-200/50 text-xs text-busan-headline italic shadow-sm">
-                    <div className="flex items-center gap-1.5 text-rose-500 font-bold mb-2 not-italic uppercase tracking-widest text-[9px]">
+                  <div className="mt-4 p-4 bg-busan-secondary rounded-2xl border border-rose-200 text-xs text-[#880E4F] italic shadow-sm">
+                    <div className="flex items-center gap-1.5 text-[#C2185B] font-bold mb-2 not-italic uppercase tracking-widest text-[9px]">
                       <Info size={12} /> Notes
                     </div>
                     <LinkifiedText text={event.notes} />
@@ -195,16 +196,34 @@ export const ItineraryView: React.FC = () => {
 
       {selectedDay.hotel && (
         <div className="px-6 mt-4 mb-8">
-            <div className="bg-[#5f94b9] text-white p-6 rounded-[32px] shadow-xl relative overflow-hidden group">
+            <div className="bg-[#2e669e] text-white p-7 pb-10 rounded-[32px] shadow-2xl relative overflow-hidden group border border-white/10">
+                <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors"></div>
+                
                 <div className="relative z-10">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="p-2 bg-white/90 backdrop-blur-md rounded-2xl shadow-sm">
-                        <BedDouble size={20} className="text-[#1a3a5a]" />
-                      </div>
-                      <span className="text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full bg-white/20 text-white shadow-sm border border-white/30 backdrop-blur-sm">Tonight's Stay</span>
+                    <div className="flex items-center gap-1.5 mb-2.5 text-white/50 font-bold uppercase tracking-[0.2em] text-[9px]">
+                      <BedDouble size={14} /> Tonight's Stay
                     </div>
-                    <h3 className="font-serif font-bold text-xl mb-1 tracking-tight">{selectedDay.hotel.name}</h3>
-                    <p className="text-white/85 text-xs mb-3 font-medium tracking-wide">{selectedDay.hotel.note}</p>
+                    
+                    <h3 className="font-serif font-bold text-2xl mb-1 tracking-tight leading-tight">{selectedDay.hotel.name}</h3>
+                    <p className="text-white/70 text-xs mb-6 font-medium tracking-wide italic leading-relaxed">{selectedDay.hotel.note}</p>
+                    
+                    <a 
+                      href={selectedDay.hotel.locationUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-1.5 text-[11px] font-bold bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl border border-white/20 transition-all active:scale-95 shadow-lg backdrop-blur-sm"
+                    >
+                      <MapPin size={11} /> 在地圖中查看 <ExternalLink size={10} className="opacity-50" />
+                    </a>
+                </div>
+
+                <div className="absolute bottom-6 right-6 flex flex-col items-center opacity-40 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
+                  <div className="relative">
+                    <Moon size={36} className="text-white/40 animate-pulse fill-white/10" />
+                    <div className="absolute -top-1 -right-1 animate-bounce">
+                      <Sparkles size={16} className="text-amber-200 shadow-amber-200/50" />
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>
