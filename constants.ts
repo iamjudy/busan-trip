@@ -17,7 +17,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { time: "15:00", temp: "6°", condition: "PartlyCloudy" }
     ],
     hotel: {
-      name: "釜山萬豪 (Fairfield by Marriott Busan)",
+      name: "釜山萬豪\n Fairfield by Marriott Busan",
       note: "距海雲台站約600公尺",
       locationUrl: "https://maps.app.goo.gl/VmrMSQG3hbtguV5p6"
     },
@@ -67,7 +67,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { time: "16:00", temp: "7°", condition: "Cloudy" }
     ],
     hotel: {
-      name: "釜山萬豪 (Fairfield by Marriott Busan)",
+      name: "釜山萬豪\n Fairfield by Marriott Busan",
       note: "距海雲台站約600公尺",
       locationUrl: "https://maps.app.goo.gl/VmrMSQG3hbtguV5p6"
     },
@@ -108,7 +108,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { time: "15:00", temp: "9°", condition: "Sunny" }
     ],
     hotel: {
-      name: "阿瓦尼中央酒店 (Avani Central Busan)",
+      name: "阿瓦尼中央酒店\n Avani Central Busan",
       note: "近國際金融中心·釜山銀行",
       locationUrl: "https://maps.app.goo.gl/PgdYBSwBipg6TXB99"
     },
@@ -126,7 +126,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { time: "16:00", temp: "8°", condition: "Rain" }
     ],
     hotel: {
-      name: "阿瓦尼中央酒店 (Avani Central Busan)",
+      name: "阿瓦尼中央酒店\n Avani Central Busan",
       note: "近國際金融中心·釜山銀行",
       locationUrl: "https://maps.app.goo.gl/PgdYBSwBipg6TXB99"
     },

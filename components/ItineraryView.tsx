@@ -200,11 +200,11 @@ export const ItineraryView: React.FC = () => {
                 <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors"></div>
                 
                 <div className="relative z-10">
-                    <div className="flex items-center gap-1.5 mb-2.5 text-white/50 font-bold uppercase tracking-[0.2em] text-[9px]">
+                    <div className="flex items-center gap-1.5 mb-2.5 text-white/50 font-bold uppercase tracking-[0.2em] text-[10px]">
                       <BedDouble size={14} /> Tonight's Stay
                     </div>
                     
-                    <h3 className="font-serif font-bold text-2xl mb-1 tracking-tight leading-tight">{selectedDay.hotel.name}</h3>
+                    <h3 className="font-serif font-bold text-lg mb-1 tracking-tight leading-tight">{selectedDay.hotel.name}</h3>
                     <p className="text-white/70 text-xs mb-6 font-medium tracking-wide italic leading-relaxed">{selectedDay.hotel.note}</p>
                     
                     <a 
