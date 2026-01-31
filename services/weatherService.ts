@@ -1,3 +1,4 @@
+
 import { DayItinerary, WeatherForecast, WeatherCondition } from '../types';
 
 // Coordinates for Busan
@@ -19,10 +20,13 @@ export const weatherService = {
   getForecast: async (day: DayItinerary): Promise<WeatherForecast[]> => {
     const targetDate = new Date(day.date);
     const today = new Date();
-    const diffTime = targetDate.getTime() - today.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Normalize dates to check range
+    const d1 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const d2 = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+    const diffDays = Math.ceil((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
 
-    const isWithinForecastRange = diffDays >= 0 && diffDays < 14;
+    const isWithinForecastRange = diffDays >= -1 && diffDays < 14;
 
     if (!isWithinForecastRange) {
       return day.weather;
@@ -37,7 +41,8 @@ export const weatherService = {
       const data = await response.json();
       if (!data.hourly) throw new Error("No hourly data");
 
-      const targetHours = [9, 12, 15, 18, 21];
+      // 從 0:00 開始每三小時一次
+      const targetHours = [0, 3, 6, 9, 12, 15, 18, 21];
       const realForecast: WeatherForecast[] = [];
 
       data.hourly.time.forEach((timeStr: string, index: number) => {
@@ -57,6 +62,7 @@ export const weatherService = {
 
       return realForecast.length > 0 ? realForecast : day.weather;
     } catch (error) {
+      console.error("Weather fetch error:", error);
       return day.weather;
     }
   }

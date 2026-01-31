@@ -84,7 +84,7 @@ export const AiAssistant: React.FC = () => {
           <div className="flex justify-start">
             <div className="bg-white rounded-2xl rounded-bl-none p-4 shadow-sm border border-busan-secondary flex items-center gap-2">
               <Loader2 size={18} className="animate-spin text-busan-primary" />
-              <span className="text-stone-400 text-sm">正在想釜山美食中...</span>
+              <span className="text-stone-400 text-sm">正在思考中...</span>
             </div>
           </div>
         )}

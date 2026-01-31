@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ItineraryView } from './components/ItineraryView';
 import { NotesView } from './components/NotesView';
@@ -19,11 +20,11 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-busan-bg font-sans max-w-md mx-auto shadow-2xl relative flex flex-col">
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-busan-secondary/30 px-6 py-4 flex items-center justify-between shadow-sm">
+    <div className="min-h-screen bg-busan-bg font-sans max-w-md mx-auto shadow-2xl relative flex flex-col border-x border-slate-100">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-busan-tertiary/50 px-6 py-5 flex items-center justify-between shadow-sm">
         <h1 className="text-xl font-serif font-bold text-busan-headline tracking-tight">{APP_NAME}</h1>
-        <div className="text-xs font-bold px-2 py-1 bg-busan-tertiary text-busan-headline rounded-md font-sans">
-          Family Trip
+        <div className="text-[9px] font-black px-2 py-0.5 border border-busan-primary text-busan-primary rounded uppercase tracking-tighter">
+          Feb 2026
         </div>
       </header>
 
@@ -31,37 +32,36 @@ const App: React.FC = () => {
         {renderContent()}
       </main>
 
-      <nav className="sticky bottom-0 w-full bg-white border-t border-busan-secondary/20 pb-4 pt-3 px-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-50">
+      <nav className="sticky bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-busan-tertiary/30 pb-6 pt-3 px-6 z-50">
         <div className="flex justify-around items-center">
           <button
             onClick={() => setActiveTab(Tab.ITINERARY)}
-            className={`flex flex-col items-center justify-center space-y-1 w-16 transition-all duration-200 group ${
-              activeTab === Tab.ITINERARY ? 'text-busan-primary' : 'text-busan-paragraph opacity-50'
+            className={`flex flex-col items-center justify-center space-y-1 w-16 transition-all duration-300 ${
+              activeTab === Tab.ITINERARY ? 'text-busan-primary scale-110' : 'text-busan-paragraph opacity-40'
             }`}
           >
-            <Calendar size={activeTab === Tab.ITINERARY ? 26 : 24} strokeWidth={activeTab === Tab.ITINERARY ? 2.5 : 2} />
+            <Calendar size={24} strokeWidth={activeTab === Tab.ITINERARY ? 2.5 : 2} />
             <span className="text-[10px] font-bold">行程</span>
           </button>
 
           <button
             onClick={() => setActiveTab(Tab.AI_ASSISTANT)}
-            className={`flex flex-col items-center justify-center space-y-1 w-16 transition-all duration-200 group ${
-              activeTab === Tab.AI_ASSISTANT ? 'text-busan-primary' : 'text-busan-paragraph opacity-50'
+            className={`flex flex-col items-center justify-center space-y-1 w-20 transition-all duration-300 ${
+              activeTab === Tab.AI_ASSISTANT ? 'text-busan-headline' : 'text-busan-paragraph opacity-40'
             }`}
           >
-            <div className={`p-2 rounded-full transition-colors ${activeTab === Tab.AI_ASSISTANT ? 'bg-busan-secondary' : 'bg-busan-bg group-hover:bg-busan-secondary/50'}`}>
-               <Sparkles size={24} className={activeTab === Tab.AI_ASSISTANT ? 'fill-busan-primary text-busan-primary' : 'text-busan-paragraph'} />
+            <div className={`p-2.5 rounded-full transition-all ${activeTab === Tab.AI_ASSISTANT ? 'bg-busan-secondary shadow-lg' : 'bg-busan-bg'}`}>
+               <Sparkles size={24} className={activeTab === Tab.AI_ASSISTANT ? 'text-white fill-white' : 'text-busan-paragraph'} />
             </div>
-            <span className="text-[10px] font-bold">AI 導遊</span>
           </button>
 
           <button
             onClick={() => setActiveTab(Tab.NOTES)}
-            className={`flex flex-col items-center justify-center space-y-1 w-16 transition-all duration-200 group ${
-              activeTab === Tab.NOTES ? 'text-busan-primary' : 'text-busan-paragraph opacity-50'
+            className={`flex flex-col items-center justify-center space-y-1 w-16 transition-all duration-300 ${
+              activeTab === Tab.NOTES ? 'text-busan-primary scale-110' : 'text-busan-paragraph opacity-40'
             }`}
           >
-            <StickyNote size={activeTab === Tab.NOTES ? 26 : 24} strokeWidth={activeTab === Tab.NOTES ? 2.5 : 2} />
+            <StickyNote size={24} strokeWidth={activeTab === Tab.NOTES ? 2.5 : 2} />
             <span className="text-[10px] font-bold">筆記</span>
           </button>
         </div>
