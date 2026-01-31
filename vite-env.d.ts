@@ -1,13 +1,16 @@
 /// <reference types="vite/client" />
 
-/**
- * Fix: Manually declare ImportMeta and ImportMetaEnv to resolve the "Cannot find type definition file" error
- * if the vite/client types are missing from the compiler's search path.
- */
 interface ImportMetaEnv {
-  readonly [key: string]: any;
+  readonly VITE_GOOGLE_API_KEY: string;
+  // 更多環境變數...
 }
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;
+}
+
+declare namespace JSX {
+  interface IntrinsicElements {
+    [elemName: string]: any;
+  }
 }

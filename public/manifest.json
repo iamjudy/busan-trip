@@ -1,19 +1,21 @@
+
 {
-  "name": "跟爹娘遊京版",
-  "start_url": "./index.html",
+  "name": "釜山行",
+  "short_name": "釜山行",
+  "start_url": "../index.html",
   "display": "standalone",
-  "background_color": "#fff1f2",
-  "theme_color": "#fff1f2",
+  "background_color": "#fcf8f2",
+  "theme_color": "#3b82f6",
   "icons": [
     {
-      "src": "./app_icon.jpg",
+      "src": "../icon.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png"
     },
     {
-      "src": "./app_icon.jpg",
+      "src": "../icon.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { ItineraryView } from './components/ItineraryView';
-import { ExpenseTracker } from './components/ExpenseTracker';
+import { NotesView } from './components/NotesView';
 import { AiAssistant } from './components/AiAssistant';
 import { Tab } from './types';
 import { APP_NAME } from './constants';
-import { Calendar, Wallet, Sparkles } from 'lucide-react';
+import { Calendar, StickyNote, Sparkles } from 'lucide-react';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>(Tab.ITINERARY);
@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case Tab.ITINERARY: return <ItineraryView />;
-      case Tab.EXPENSES: return <ExpenseTracker />;
+      case Tab.NOTES: return <NotesView />;
       case Tab.AI_ASSISTANT: return <AiAssistant />;
       default: return <ItineraryView />;
     }
@@ -56,13 +56,13 @@ const App: React.FC = () => {
           </button>
 
           <button
-            onClick={() => setActiveTab(Tab.EXPENSES)}
+            onClick={() => setActiveTab(Tab.NOTES)}
             className={`flex flex-col items-center justify-center space-y-1 w-16 transition-all duration-200 group ${
-              activeTab === Tab.EXPENSES ? 'text-busan-primary' : 'text-busan-paragraph opacity-50'
+              activeTab === Tab.NOTES ? 'text-busan-primary' : 'text-busan-paragraph opacity-50'
             }`}
           >
-            <Wallet size={activeTab === Tab.EXPENSES ? 26 : 24} strokeWidth={activeTab === Tab.EXPENSES ? 2.5 : 2} />
-            <span className="text-[10px] font-bold">記帳</span>
+            <StickyNote size={activeTab === Tab.NOTES ? 26 : 24} strokeWidth={activeTab === Tab.NOTES ? 2.5 : 2} />
+            <span className="text-[10px] font-bold">筆記</span>
           </button>
         </div>
       </nav>

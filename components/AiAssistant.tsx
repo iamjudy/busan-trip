@@ -1,5 +1,6 @@
+
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Sparkles, Loader2 } from 'lucide-react';
+import { Send, Bot, Sparkles, Loader2 } from 'lucide-react';
 import { chatWithGemini } from '../services/aiService';
 
 interface Message {
@@ -9,9 +10,8 @@ interface Message {
 }
 
 export const AiAssistant: React.FC = () => {
-  // Fix: Updated initial greeting to match Busan trip theme
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', role: 'assistant', text: '阿北阿木好！我是這次釜山海味之旅的專屬導遊。關於行程安排、海邊景點或釜山美食，都可以問我喔！' }
+    { id: '1', role: 'assistant', text: '哈囉你好！我是這次釜山之旅的 AI 導遊。關於海雲台美食、Spa Land 汗蒸幕，或是韓文點餐，都可以問我喔！🌊' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -46,31 +46,29 @@ export const AiAssistant: React.FC = () => {
     }
   };
 
-  // Fix: Updated suggestions to reflect Busan-specific interests
   const suggestions = [
-    "明天行程重點是什麼？",
-    "海雲台傳統市場有什麼好吃的？",
-    "現在釜山天氣如何？",
-    "幫我翻譯「請給我熱水」的韓文"
+    "推薦海雲台好吃的晚餐？",
+    "Spa Land 汗蒸幕要注意什麼？",
+    "幫我翻譯「請給我兩份豬肉湯飯」",
+    "明天甘川洞天氣如何？"
   ];
 
   return (
     <div className="flex flex-col h-[calc(100vh-140px)] animate-fade-in">
       <div className="px-4 py-2 text-center border-b border-stone-100 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
-        <h2 className="text-lg font-bold text-stone-800 flex items-center justify-center gap-2">
+        <h2 className="text-lg font-bold text-busan-headline flex items-center justify-center gap-2">
           <Sparkles size={18} className="text-busan-primary" />
-          AI 隨身導遊
+          釜山隨身導遊
         </h2>
       </div>
 
-      {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-stone-50">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-busan-bg/50">
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div className={`max-w-[80%] rounded-2xl p-4 shadow-sm ${
               msg.role === 'user' 
                 ? 'bg-busan-headline text-white rounded-br-none' 
-                : 'bg-white text-stone-800 border border-stone-100 rounded-bl-none'
+                : 'bg-white text-busan-paragraph border border-busan-secondary rounded-bl-none'
             }`}>
               {msg.role === 'assistant' && (
                 <div className="flex items-center gap-2 mb-1 text-busan-primary font-bold text-xs uppercase tracking-wider">
@@ -84,16 +82,15 @@ export const AiAssistant: React.FC = () => {
         
         {isLoading && (
           <div className="flex justify-start">
-            <div className="bg-white rounded-2xl rounded-bl-none p-4 shadow-sm border border-stone-100 flex items-center gap-2">
+            <div className="bg-white rounded-2xl rounded-bl-none p-4 shadow-sm border border-busan-secondary flex items-center gap-2">
               <Loader2 size={18} className="animate-spin text-busan-primary" />
-              <span className="text-stone-400 text-sm">正在思考中...</span>
+              <span className="text-stone-400 text-sm">正在想釜山美食中...</span>
             </div>
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Suggestions (only if few messages) */}
       {messages.length < 3 && !isLoading && (
         <div className="px-4 py-2 overflow-x-auto whitespace-nowrap no-scrollbar space-x-2">
           {suggestions.map((s, i) => (
@@ -108,21 +105,20 @@ export const AiAssistant: React.FC = () => {
         </div>
       )}
 
-      {/* Input Area */}
       <div className="p-4 bg-white border-t border-stone-200 pb-4">
         <form onSubmit={handleSend} className="relative flex items-center gap-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="問問導遊..."
-            className="flex-1 bg-stone-100 border-transparent focus:bg-white focus:border-busan-secondary focus:ring-0 rounded-full py-3 pl-5 pr-12 transition-all"
+            placeholder="問問釜山大小事..."
+            className="flex-1 bg-stone-100 border-transparent focus:bg-white focus:border-busan-secondary rounded-full py-3 pl-5 pr-12 transition-all"
             disabled={isLoading}
           />
           <button 
             type="submit" 
             disabled={!input.trim() || isLoading}
-            className="absolute right-2 p-2 bg-busan-primary text-white rounded-full shadow-md disabled:opacity-50 disabled:shadow-none hover:opacity-90 transition-colors"
+            className="absolute right-2 p-2 bg-busan-primary text-white rounded-full shadow-md disabled:opacity-50 hover:opacity-90 transition-colors"
           >
             <Send size={18} />
           </button>

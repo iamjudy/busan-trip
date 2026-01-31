@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
   <head>
@@ -7,14 +8,14 @@
     <!-- PWA / iOS Web App Settings -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="釜山海味之旅">
-    <meta name="theme-color" content="#faeee7">
+    <meta name="apple-mobile-web-app-title" content="釜山行">
+    <meta name="theme-color" content="#3b82f6">
     
-    <link rel="apple-touch-icon" href="./app_icon.jpg">
-    <link rel="icon" type="image/jpeg" href="./app_icon.jpg">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icon.png">
+    <link rel="icon" type="image/png" href="./icon.png">
+    <link rel="manifest" href="./public/manifest.json">
 
-    <title>🌊 釜山海味之旅</title>
+    <title>🌊 釜山行</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
@@ -25,12 +26,12 @@
           extend: {
             colors: {
               'busan': {
-                'bg': '#faeee7',
-                'headline': '#33272a',
-                'paragraph': '#594a4e',
-                'primary': '#ff8ba7',
-                'secondary': '#ffc6c7',
-                'tertiary': '#c3f0ca',
+                'bg': '#f0f4f8',
+                'headline': '#1e293b',
+                'paragraph': '#475569',
+                'primary': '#3b82f6', // 海洋藍
+                'secondary': '#dbeafe',
+                'tertiary': '#f1f5f9',
               }
             },
             fontFamily: {
@@ -44,7 +45,7 @@
     <style>
       .no-scrollbar::-webkit-scrollbar { display: none; }
       .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      body { -webkit-tap-highlight-color: transparent; background-color: #faeee7; color: #594a4e; }
+      body { -webkit-tap-highlight-color: transparent; background-color: #f0f4f8; color: #475569; }
       @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
       .animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
       @keyframes slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
