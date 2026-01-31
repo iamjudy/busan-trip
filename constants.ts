@@ -89,7 +89,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         location: "海雲臺藍線公園-青沙埔站",
         locationUrl: "https://maps.app.goo.gl/XLA5E4FpvF2LV8e37",
         image: "https://image-store.asiayo.com/bnb/49524/autoxauto/desc_WKeMhlPDX1eDWg.webp",
-        notes: "[Sky Capsule Booking Details](https://www.tbluelinepark.com/m/mobileTicket/RS26001463056/DB99B64857494D65219EB4E90FB37121E9C21B803AFCFA55B73CBE23DB2233A1)"
+        notes: "[Sky Capsule Booking Details](https://tket.me/yLODun3)"
       },
       { 
         time: "19:00", 

@@ -19,7 +19,7 @@ const WeatherIcon: Record<string, React.ReactNode> = {
   Rain: <CloudRain size={24} className="text-blue-300" />
 };
 
-// 連結渲染組件
+// 連結渲染組件：處理 [文字](連結) 格式
 const LinkifiedText: React.FC<{ text: string }> = ({ text }) => {
   const parts = text.split(/(\[.*?\]\(.*?\))/g);
   return (
@@ -154,17 +154,34 @@ export const ItineraryView: React.FC = () => {
                 
                 {event.flight && <FlightCard flight={event.flight} />}
 
+                {event.image && (
+                  <div className="my-3 overflow-hidden rounded-2xl border border-busan-tertiary/30">
+                    <img src={event.image} alt={event.title} className="w-full h-auto object-cover max-h-48" />
+                  </div>
+                )}
+
                 {event.location && (
-                  <div className="mt-2">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-amber-100/60 text-amber-800 border-amber-200/50">
-                      <MapPin size={11} /> {event.location}
-                    </span>
+                  <div className="mt-2 flex items-center gap-2">
+                    {event.locationUrl ? (
+                      <a 
+                        href={event.locationUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-amber-50 text-amber-800 border-amber-200/50 hover:bg-amber-100 transition-colors underline decoration-amber-300"
+                      >
+                        <MapPin size={11} /> {event.location} <ExternalLink size={9} />
+                      </a>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-xl border bg-slate-50 text-slate-600 border-slate-200">
+                        <MapPin size={11} /> {event.location}
+                      </span>
+                    )}
                   </div>
                 )}
 
                 {event.notes && (
-                  <div className="mt-4 p-4 bg-[#FCE1E4] rounded-2xl border border-[#F9B7C1] text-xs text-busan-paragraph italic shadow-sm">
-                    <div className="flex items-center gap-1.5 text-rose-600 font-bold mb-2 not-italic uppercase tracking-widest text-[9px]">
+                  <div className="mt-4 p-4 bg-busan-secondary rounded-2xl border border-rose-200/50 text-xs text-busan-headline italic shadow-sm">
+                    <div className="flex items-center gap-1.5 text-rose-500 font-bold mb-2 not-italic uppercase tracking-widest text-[9px]">
                       <Info size={12} /> Notes
                     </div>
                     <LinkifiedText text={event.notes} />
