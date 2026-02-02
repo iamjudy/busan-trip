@@ -25,7 +25,8 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { 
         time: "13:25", 
         title: "釜山航空 BX794", 
-        description: "", 
+        description: "",
+        icon: "Plane",  
         location: "桃園機場 T2",
         highlight: true,
         flight: {
@@ -43,24 +44,25 @@ export const ITINERARY_DATA: DayItinerary[] = [
           duration: "2 小時 35 分鐘"
         }
       },
-      { 
-        time: "15:30", 
-        title: "海雲台沙灘漫步", 
-        description: "吹吹冬日海風，與海鷗合照", 
-        icon: "Camera",
-        location: "海雲台"
+      {
+        time: "16:10",
+        title: "豪華機場巴士1號線",
+        description: "金海機場巴士 to 海雲台溫泉十字路口 해운대온천사거리 \n每一小時一班，大約 80 分鐘車程，下車後飯店就在站牌隔壁！",
+        location: "國際航站樓",
+        notes: "如果很塞車，可以改搭「機場輕軌 + 地鐵」，搭至「沙上站」後轉乘釜山地鐵2號線，就能前往釜山各地。"
       },
       { 
         time: "18:00", 
-        title: "伍班長烤肉", 
-        description: "海雲台必吃的超人氣烤肉，暖暖身子", 
+        title: "水邊最高豬肉湯飯", 
+        description: "招牌湯飯是豬頸肉湯飯 항정국밥，搭配的是濃郁的高湯、滿滿的豬頸肉和兩塊血腸", 
         icon: "Utensils",
-        location: "海雲台"
-      }
+        location: "水邊最高豬肉湯飯",
+        locationUrl: "https://maps.app.goo.gl/BdSTi4hpqQdcCEqTA"
+      },
     ]
   },
   {
-    dayTitle: "藍線公園",
+    dayTitle: "海岸散策：海雲臺與廣安里",
     date: "2026-02-06",
     weather: [
       { time: "10:00", temp: "3°", condition: "Sunny" },
@@ -68,40 +70,59 @@ export const ITINERARY_DATA: DayItinerary[] = [
     ],
     hotel: {
       name: "釜山萬豪\n Fairfield by Marriott Busan",
-      note: "距海雲台站約600公尺",
+      note: "距海雲臺站約600公尺",
       locationUrl: "https://maps.app.goo.gl/VmrMSQG3hbtguV5p6"
     },
     events: [
-      { 
-        time: "10:30", 
-        title: "甘川洞文化村", 
-        description: "尋找小王子，俯瞰彩色村落", 
-        icon: "Landmark",
-        location: "甘川洞",
-        highlight: true,
-        notes: "這邊坡度較陡，建議長輩慢行。\n\n[地圖指南](https://maps.app.goo.gl/gamcheon)"
+      {
+        time: "09:30",
+        title: "海雲臺海岸列車",
+        description: "搭乘復古列車，沿著東釜山海岸線緩緩行駛",
+        icon: "Train",
+        location: "海雲臺藍線公園-尾浦站",
+        locationUrl: "https://maps.app.goo.gl/fcnPFcV5Lwz3XRjY8",
+        notes: "用釜山 pass 乘車，每個站點只能上一次車，下車則無限制。\n 可以搭到松亭站或是青沙埔站"
       },
       { 
         time: "13:30", 
         title: "膠囊列車", 
-        description: "沿著海岸線搭回尾埔站，車程約 30 分鐘", 
-        icon: "Landmark",
+        description: "可愛迷你的膠囊車廂，從青沙埔回尾浦，車程約 30 分鐘", 
+        icon: "Train",
         location: "海雲臺藍線公園-青沙埔站",
         locationUrl: "https://maps.app.goo.gl/XLA5E4FpvF2LV8e37",
         image: "https://image-store.asiayo.com/bnb/49524/autoxauto/desc_WKeMhlPDX1eDWg.webp",
         notes: "[Sky Capsule Booking Details](https://tket.me/yLODun3)"
       },
       { 
-        time: "19:00", 
-        title: "廣安里海大橋夜景", 
-        description: "一邊吃炸雞一邊看大橋亮燈", 
-        icon: "Camera",
-        location: "廣安里"
-      }
+        time: "15:00", 
+        title: "Spa Land Centum City 汗蒸幕", 
+        description: "釜山最豪華的汗蒸幕空間放鬆，體驗多樣化的特色蒸房\n費用含在 Busan Pass，入場可停留 4 小時（記得用毛巾摺羊角頭）", 
+        icon: "Landmark",
+        location: "新世界百貨 Spa Land",
+        locationUrl: "https://maps.app.goo.gl/NC8UU8PRuWZxX5zJA"
+      },
+      {
+        time: "17:30",
+        title: "廣安里吃海鮮",
+        description: "品嚐熱騰騰的海鮮刀削麵，遠眺廣安大橋",
+        icon: "Utensils",
+        location: "Nasari Sigdang",
+        locationUrl: "https://maps.app.goo.gl/s3Fkca44Hg9ztmZA8"
+      },
+      {
+        time: "19:30",
+        title: "鑽石灣遊艇",
+        description: "航行於廣安大橋下的浪漫時刻，海上煙火秀為今日畫下句點",
+        icon: "Sparkles",
+        location: "Diamond Bay",
+        locationUrl: "https://maps.app.goo.gl/DM4XtoE2Xx1aV3SG8",
+        image: "https://www.visitbusanpass.com/btp/20230302/18361941-0457-4164-82ce-2538f8439f03.jpg",
+        notes: "航行 50 分鐘，提早 30 分鐘報到\n (5,000 KRW per person applies to the Night Course for VBP holders)"
+      },
     ]
   },
   {
-    dayTitle: "機張：奢華與美食",
+    dayTitle: "歷史走訪",
     date: "2026-02-07",
     weather: [
       { time: "09:00", temp: "4°", condition: "Sunny" },
@@ -113,13 +134,46 @@ export const ITINERARY_DATA: DayItinerary[] = [
       locationUrl: "https://maps.app.goo.gl/PgdYBSwBipg6TXB99"
     },
     events: [
-      { time: "10:00", title: "海東龍宮寺", description: "韓國唯一的海邊寺廟", icon: "Landmark", location: "機張" },
-      { time: "13:00", title: "機張市場大蟹", description: "冬日必吃的豪華海鮮盛宴", icon: "Utensils", location: "機張市場", highlight: true },
-      { time: "16:00", title: "樂天世界/Outlet", description: "家庭採買與遊樂行程", icon: "ShoppingBag", location: "機張" }
+      {
+        "time": "09:00",
+        "title": "慶州千年古都巡禮",
+        "description": "漫步大陵苑、佛國寺，感受新羅王朝的歷史氛圍",
+        "icon": "Landmark",
+        "location": "慶州歷史遺跡區",
+        "locationUrl": "https://maps.google.com/maps/contrib/115336009735096042269",
+        "notes": "若搭乘 KTX 至新慶州站只需 30 分鐘，建議與金井山擇一進行"
+      },
+      {
+        "time": "13:30",
+        "title": "東萊與金井山城",
+        "description": "搭乘金井山纜車俯瞰市景，走訪古老城牆與東萊蔥餅街",
+        "icon": "CloudSun",
+        "location": "金井山城纜車",
+        "locationUrl": "https://maps.google.com/?cid=5166631765211852909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ6",
+        "notes": "可以順遊梵魚寺，體驗莊嚴的寺院建築"
+      },
+      {
+        "time": "16:00",
+        "title": "聯合國紀念公園",
+        "description": "全球唯一聯合國公墓，環境肅穆優美，紀念和平精神",
+        "icon": "Sun",
+        "location": "聯合國紀念公園 (UNMCK)",
+        "locationUrl": "https://maps.google.com/?cid=5166631765211852909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ7",
+        "notes": "距離酒店較近，適合排在回程或傍晚前造訪"
+      },
+      {
+        "time": "18:30",
+        "title": "83獬豸 (83Haechi) 烤肉",
+        "description": "西面超人氣帥哥代烤店，必點招牌豬五花與頸肉",
+        "icon": "Utensils",
+        "location": "83Haechi 西面店",
+        "locationUrl": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipOp-jBS9sjZN9ul3IACh06jNbIygW6Vjuyhxh65!2e10!4m2!3m1!1s0x3568eb519a149edd:0xe45563b78d7e83bc",
+        "notes": "排隊人潮眾多，可線上登記候位"
+      },
     ]
   },
   {
-    dayTitle: "西面：繁華市中心",
+    dayTitle: "海色與彩繪的對話",
     date: "2026-02-08",
     weather: [
       { time: "10:00", temp: "5°", condition: "Cloudy" },
@@ -131,9 +185,44 @@ export const ITINERARY_DATA: DayItinerary[] = [
       locationUrl: "https://maps.app.goo.gl/PgdYBSwBipg6TXB99"
     },
     events: [
-      { time: "11:00", title: "西面商圈購物", description: "地下街衣服、保養品大採購", icon: "ShoppingBag", location: "西面" },
-      { time: "15:00", title: "田浦咖啡街", description: "找間特色咖啡廳度過下午", icon: "Coffee", location: "西面" },
-      { time: "18:00", title: "松亭三代豬肉湯飯", description: "道地釜山老店，必喝濃醇湯頭", icon: "Utensils", location: "西面" }
+      {
+        time: "09:30",
+        title: "甘川洞文化村",
+        description: "漫步韓國聖托里尼，尋找小王子與狐狸雕像",
+        icon: "Camera",
+        location: "甘川洞文化村",
+        locationUrl: "https://maps.app.goo.gl/F28MCHgM1Fv45FzG6",
+        image: "https://img.judyer.com/pixnet/4d4693a1ede9124d86aebb026e20c8e0.jpg",
+        notes: "建議在入口處買地圖集章，打卡點人潮較多需排隊"
+      },
+      {
+        time: "12:30",
+        title: "札嘎其市場",
+        description: "品嚐現撈海鮮料理，體驗全韓最大海鮮市場活力",
+        icon: "Utensils",
+        location: "札嘎其市場",
+        locationUrl: "https://maps.app.goo.gl/m3rJ222N8m9m3Q5T6",
+        notes: "一樓挑選海鮮，二樓代客料理"
+      },
+      {
+        time: "14:30",
+        title: "松島海上纜車",
+        description: "搭乘水晶車廂橫越海面，飽覽松島絕美海景",
+        icon: "Sparkles",
+        location: "松島灣站",
+        locationUrl: "https://maps.app.goo.gl/3XmR5k7X7X7X7X7X7",
+        image: "https://i0.wp.com/journey.tw/wp-content/uploads/2023-08-20-020258-76.jpg?resize=1100%2C734&quality=99&ssl=1",
+        notes: "建議購買來回票，可至對岸岩南公園走走"
+      },
+      {
+        time: "16:30",
+        title: "影島白淺灘",
+        description: "面海藝術村散步，找間海景咖啡廳欣賞落日",
+        icon: "Coffee",
+        location: "白淺灘文化村",
+        locationUrl: "https://maps.app.goo.gl/HUnGqV6mG2m5X7D6A",
+        notes: "傍晚時刻光線最美，適合拍照與放空",
+      }
     ]
   },
   {
