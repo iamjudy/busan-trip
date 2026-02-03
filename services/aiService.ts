@@ -2,9 +2,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { ITINERARY_DATA } from '../constants';
 
-const apiKey = import.meta.env?.VITE_GOOGLE_API_KEY || ''; 
-const ai = new GoogleGenAI({ apiKey });
-
 const SYSTEM_INSTRUCTION = `
 你是「釜山之旅」的 AI 專屬導遊。你的使用者是「弈辰」一家人與「筑婷」。
 成員：弈辰、筑婷、弈辰爸、弈辰媽。
@@ -24,11 +21,17 @@ ${JSON.stringify(ITINERARY_DATA)}
 `;
 
 export const chatWithGemini = async (userMessage: string): Promise<string> => {
-  if (!apiKey) {
-    return "忘記設 API Key 了！";
+  // 核心修復：確保 process.env.API_KEY 不是字串 "undefined"
+  const apiKey = process.env.API_KEY;
+
+  if (!apiKey || apiKey === 'undefined' || apiKey === '') {
+    return "找不到 API Key。請確認 GitHub 倉庫的 Settings > Secrets > Actions 中已正確設定 VITE_GOOGLE_API_KEY，且 deploy 流程已成功。";
   }
+
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    // 每次調用都建立新實例，確保使用最新的編譯值
+    const ai = new GoogleGenAI({ apiKey });
+    
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: userMessage,
@@ -37,9 +40,14 @@ export const chatWithGemini = async (userMessage: string): Promise<string> => {
       }
     });
     
-    return response.text || "釜山的海風太大了，我沒聽清楚，請再說一次。";
-  } catch (error) {
+    return response.text || "釜山太冷了，我沒聽清楚，請再說一次。";
+  } catch (error: any) {
     console.error("Gemini Error:", error);
+    
+    if (error?.message?.includes('403') || error?.message?.includes('API_KEY_INVALID')) {
+      return "API Key 似乎無效，請檢查 GitHub Secrets 的設定。";
+    }
+
     return "連線稍微卡住了，可能是被海雲台的高樓擋住了訊號。";
   }
 };
