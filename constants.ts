@@ -192,7 +192,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         icon: "Camera",
         location: "甘川洞文化村",
         locationUrl: "https://maps.app.goo.gl/F28MCHgM1Fv45FzG6",
-        image: "https://maps.app.goo.gl/XQfigv3tkg6NbLFP7",
+        image: "https://res.klook.com/image/upload/Gamcheon_Culture_Village_Busan_nq0nyx.jpg",
         notes: "可選擇在入口處買地圖集章，打卡點人潮較多需排隊"
       },
       {
