@@ -10,7 +10,7 @@ export const CATEGORY_OPTIONS = Object.values(ExpenseCategory);
 
 export const ITINERARY_DATA: DayItinerary[] = [
   {
-    dayTitle: "啟程・抵達海雲臺",
+    dayTitle: "啟程：海雲臺",
     date: "2026-02-05",
     weather: [
       { time: "09:00", temp: "12°", condition: "Sunny" },
@@ -27,7 +27,6 @@ export const ITINERARY_DATA: DayItinerary[] = [
         title: "釜山航空 BX794", 
         description: "",
         icon: "Plane",  
-        location: "桃園機場 T2",
         highlight: true,
         flight: {
           airlineCode: "BX794",
@@ -49,7 +48,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         title: "豪華機場巴士1號線",
         description: "金海機場巴士 to 海雲台溫泉十字路口 해운대온천사거리 \n每一小時一班，大約 80 分鐘車程，下車後飯店就在站牌隔壁！",
         location: "國際航站樓",
-        notes: "如果很塞車，可以改搭「機場輕軌 + 地鐵」，搭至「沙上站」後轉乘釜山地鐵2號線，就能前往釜山各地。"
+        notes: "如果很塞車，可以改搭機場輕軌 + 地鐵，搭至「沙上站」後轉乘釜山地鐵 2 號線，就能前往釜山各地。"
       },
       { 
         time: "18:00", 
@@ -62,7 +61,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     ]
   },
   {
-    dayTitle: "海岸散策：海雲臺與廣安里",
+    dayTitle: "海岸散策：海雲臺廣安里",
     date: "2026-02-06",
     weather: [
       { time: "10:00", temp: "3°", condition: "Sunny" },
@@ -81,7 +80,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         icon: "Train",
         location: "海雲臺藍線公園-尾浦站",
         locationUrl: "https://maps.app.goo.gl/fcnPFcV5Lwz3XRjY8",
-        notes: "用釜山 pass 乘車，每個站點只能上一次車，下車則無限制。\n 可以搭到松亭站或是青沙埔站"
+        notes: "用釜山 pass 乘車，每個站點只能上一次車，下車則無限制。 可以搭到松亭站或是青沙埔站"
       },
       { 
         time: "13:30", 
@@ -96,7 +95,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
       { 
         time: "15:00", 
         title: "Spa Land Centum City 汗蒸幕", 
-        description: "釜山最豪華的汗蒸幕空間放鬆，體驗多樣化的特色蒸房\n費用含在 Busan Pass，入場可停留 4 小時（記得用毛巾摺羊角頭）", 
+        description: "釜山最豪華的汗蒸幕空間放鬆，體驗多樣化的特色蒸房。費用含在 Busan Pass，入場可停留 4 小時（記得用毛巾摺羊角頭）", 
         icon: "Landmark",
         location: "新世界百貨 Spa Land",
         locationUrl: "https://maps.app.goo.gl/NC8UU8PRuWZxX5zJA"
@@ -122,7 +121,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
     ]
   },
   {
-    dayTitle: "歷史走訪",
+    dayTitle: "歷史走訪：慶州",
     date: "2026-02-07",
     weather: [
       { time: "09:00", temp: "4°", condition: "Sunny" },
@@ -139,8 +138,8 @@ export const ITINERARY_DATA: DayItinerary[] = [
         "title": "慶州千年古都巡禮",
         "description": "漫步大陵苑、佛國寺，感受新羅王朝的歷史氛圍",
         "icon": "Landmark",
-        "location": "慶州歷史遺跡區",
-        "locationUrl": "https://maps.google.com/maps/contrib/115336009735096042269",
+        "location": "大陵苑",
+        "locationUrl": "https://maps.app.goo.gl/fUSdam6L8kgZQ7tF8",
         "notes": "若搭乘 KTX 至新慶州站只需 30 分鐘，建議與金井山擇一進行"
       },
       {
@@ -148,8 +147,9 @@ export const ITINERARY_DATA: DayItinerary[] = [
         "title": "東萊與金井山城",
         "description": "搭乘金井山纜車俯瞰市景，走訪古老城牆與東萊蔥餅街",
         "icon": "CloudSun",
-        "location": "金井山城纜車",
-        "locationUrl": "https://maps.google.com/?cid=5166631765211852909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ6",
+        "location": "金井山城",
+        "locationUrl": "https://maps.app.goo.gl/Hz8FU7WzWKJ5bqck6",
+        "image": "https://www.visitbusan.net/uploadImgs/files/cntnts/20191230180640227",
         "notes": "可以順遊梵魚寺，體驗莊嚴的寺院建築"
       },
       {
@@ -158,7 +158,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         "description": "全球唯一聯合國公墓，環境肅穆優美，紀念和平精神",
         "icon": "Sun",
         "location": "聯合國紀念公園 (UNMCK)",
-        "locationUrl": "https://maps.google.com/?cid=5166631765211852909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ7",
+        "locationUrl": "https://maps.app.goo.gl/RqJHom4uPM9tzyuA9",
         "notes": "距離酒店較近，適合排在回程或傍晚前造訪"
       },
       {
@@ -167,7 +167,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         "description": "西面超人氣帥哥代烤店，必點招牌豬五花與頸肉",
         "icon": "Utensils",
         "location": "83Haechi 西面店",
-        "locationUrl": "https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipOp-jBS9sjZN9ul3IACh06jNbIygW6Vjuyhxh65!2e10!4m2!3m1!1s0x3568eb519a149edd:0xe45563b78d7e83bc",
+        "locationUrl": "https://maps.app.goo.gl/MZYx7qmAfjc8mS9s5",
         "notes": "排隊人潮眾多，可線上登記候位"
       },
     ]
@@ -192,8 +192,8 @@ export const ITINERARY_DATA: DayItinerary[] = [
         icon: "Camera",
         location: "甘川洞文化村",
         locationUrl: "https://maps.app.goo.gl/F28MCHgM1Fv45FzG6",
-        image: "https://img.judyer.com/pixnet/4d4693a1ede9124d86aebb026e20c8e0.jpg",
-        notes: "建議在入口處買地圖集章，打卡點人潮較多需排隊"
+        image: "https://maps.app.goo.gl/XQfigv3tkg6NbLFP7",
+        notes: "可選擇在入口處買地圖集章，打卡點人潮較多需排隊"
       },
       {
         time: "12:30",
@@ -201,8 +201,8 @@ export const ITINERARY_DATA: DayItinerary[] = [
         description: "品嚐現撈海鮮料理，體驗全韓最大海鮮市場活力",
         icon: "Utensils",
         location: "札嘎其市場",
-        locationUrl: "https://maps.app.goo.gl/m3rJ222N8m9m3Q5T6",
-        notes: "一樓挑選海鮮，二樓代客料理"
+        locationUrl: "https://maps.app.goo.gl/cwAjVhorAi6yDWyk8",
+        notes: "一樓挑選海鮮（螃蟹好吃），二樓代客料理"
       },
       {
         time: "14:30",
@@ -210,7 +210,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         description: "搭乘水晶車廂橫越海面，飽覽松島絕美海景",
         icon: "Sparkles",
         location: "松島灣站",
-        locationUrl: "https://maps.app.goo.gl/3XmR5k7X7X7X7X7X7",
+        locationUrl: "https://maps.app.goo.gl/TiWKug9korU2M6KY6",
         image: "https://i0.wp.com/journey.tw/wp-content/uploads/2023-08-20-020258-76.jpg?resize=1100%2C734&quality=99&ssl=1",
         notes: "建議購買來回票，可至對岸岩南公園走走"
       },
@@ -220,7 +220,7 @@ export const ITINERARY_DATA: DayItinerary[] = [
         description: "面海藝術村散步，找間海景咖啡廳欣賞落日",
         icon: "Coffee",
         location: "白淺灘文化村",
-        locationUrl: "https://maps.app.goo.gl/HUnGqV6mG2m5X7D6A",
+        locationUrl: "https://maps.app.goo.gl/k7BYXNXvb6Se5vgM7",
         notes: "傍晚時刻光線最美，適合拍照與放空",
       }
     ]
@@ -238,13 +238,13 @@ export const ITINERARY_DATA: DayItinerary[] = [
         title: "最後採買/機場移動", 
         description: "前往金海機場準備回程", 
         icon: "Train", 
-        location: "沙上/金海" 
+        location: "金海機場",
+        locationUrl: "https://maps.app.goo.gl/DMx6vEFy9B2S5Ayi7"
       },
       { 
         time: "10:50", 
         title: "釜山航空 BX793", 
         description: "", 
-        location: "桃園機場 T2",
         highlight: true,
         flight: {
           airlineCode: "BX793",
